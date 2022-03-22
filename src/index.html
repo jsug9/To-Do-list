@@ -4,31 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 </head>
 <body>
-    <header>
-      <h1>Today's To Do</h1>
-      <i class="fas fa-sync-alt refresh-icon"></i>
-    </header>
-    <input type="text" name="todo-input" id="todo-input" class="todo-input" placeholder="Add to your list...">
-    <ul class="todo-list">
-      <li class="todo">
-        <input type="checkbox" class="checkbox">
-        <label class="todo-text">todo 1</label>
-        <i class="fas fa-trash-alt remove"></i>
-      </li>
-      <li class="todo">
-        <input type="checkbox" class="checkbox">
-        <label class="todo-text">todo 1</label>
-        <i class="fas fa-trash-alt remove"></i>
-      </li>
-      <li class="todo">
-        <input type="checkbox" class="checkbox">
-        <label class="todo-text">todo 1</label>
-        <i class="fas fa-trash-alt remove"></i>
-      </li>
-    </ul>
-    <button class="clear-btn">Clear all completed</>
+    <main>
+      <header>
+        <h1>Today's To Do</h1>
+        <button class="fas fa-sync-alt refresh-icon"></button>
+      </header>
+      <input type="text" name="todo-input" id="todo-input" class="todo-input" placeholder="Add to your list...">
+      <ul class="todo-list" id="todo-list">
+      </ul>
+      <button class="clear-btn">Clear all completed</>
+    </main>
     <script src="https://kit.fontawesome.com/2bc8a8d57a.js" crossorigin="anonymous"></script>
 </body>
 </html>

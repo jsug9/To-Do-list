@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 <script defer src="index.bundle.js"></script></head>
 <body>
-    <header>
-      <h1>Today's To Do</h1>
-      <i class="fas fa-sync-alt refresh-icon"></i>
-    </header>
+    <main>
+      <header>
+        <h1>Today's To Do</h1>
+        <button class="fas fa-sync-alt refresh-icon"></button>
+      </header>
+      <input type="text" name="todo-input" id="todo-input" class="todo-input" placeholder="Add to your list...">
+      <ul class="todo-list" id="todo-list">
+        <li class="todo">
+          <div class="todo-left">
+            <input type="checkbox" class="checkbox">
+            <label class="todo-text">Todo 1</label>
+          </div>
+          <button class="options-button"><span class="iconify options" data-icon="mi:options-vertical"></span></button>
+        </li>
+      </ul>
+      <button class="clear-btn">Clear all completed</>
+    </main>
     <script src="https://kit.fontawesome.com/2bc8a8d57a.js" crossorigin="anonymous"></script>
 </body>
 </html>
