@@ -4,8 +4,6 @@ import storageAvailable from './modules/storageAvailable.js';
 
 const todoInput = document.getElementById('todo-input')
 
-const todoTexts = document.getElementsByClassName('todo-text');
-
 // const sortedTodos = todos.sort(function(a, b) {
 //   if ( a.index < b.index ){
 //     return -1;
@@ -49,13 +47,25 @@ if (storageAvailable('localStorage')) {
   for (let i = 0; i < todos.todos.length; i += 1) {
     const checkboxes = document.querySelectorAll('.checkbox');
     checkboxes[i].addEventListener('change', (e) => {
-      if(e.target.checked){
-        todos.complete(i)
-      } else {
-        todos.notComplete(i)
-      }
+      e.target.checked ? todos.complete(i) : todos.notComplete(i);
       todos.save();
       console.log(todos.todos);
+    });
+  }
+
+  for (let i = 0; i < todos.todos.length; i += 1) {
+    const todoTexts = document.querySelectorAll('.todo-text');
+    todoTexts[i].addEventListener("keydown", function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+      }
+    });
+    todoTexts[i].addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        todos.edit(i, todoTexts[i].innerHTML);
+        todos.save();
+        console.log(todos.todos);
+      }
     });
   }
 
