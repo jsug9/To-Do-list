@@ -1,7 +1,7 @@
 import './style.css';
 import todos from './modules/todos.js';
 import storageAvailable from './modules/storageAvailable.js';
-import { todoInput } from './modules/htmlElements.js';
+import { clearBtn, todoInput } from './modules/htmlElements.js';
 
 if (storageAvailable('localStorage')) {
   todos.checkStorage();
@@ -53,5 +53,11 @@ if (storageAvailable('localStorage')) {
         window.location.reload();
       }
     }
+  });
+
+  clearBtn.addEventListener('click', () => {
+    todos.clearCompleted();
+    todos.save();
+    window.location.reload();
   });
 }
