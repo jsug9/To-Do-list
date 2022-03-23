@@ -75,11 +75,11 @@ h1 {
   padding: 0;
 }
 
-.options-button:hover {
+.remove-button:hover {
   color: #c2c1c1;
 }
 
-.options-button:active {
+.remove-button:active {
   color: red;
 }
 
