@@ -19,16 +19,15 @@ export default class Todos {
 
   delete = (index) => {
     this.todos.splice(index, 1);
+    for (var i = 0; i < this.todos.length; i++) {
+      this.todos[i].index = i
+    }
     this.save();
     window.location.reload();
   }
 
-  complete = (index) => {
-    this.todos[index].isComplete = true;
-  }
-
-  notComplete = (index) => {
-    this.todos[index].isComplete = false;
+  complete = (index, completed) => {
+    this.todos[index].isComplete = completed;
   }
 
   edit = (index, description) => {
@@ -54,7 +53,7 @@ export default class Todos {
           <input type="checkbox" class="checkbox" ${this.todos[i].isComplete ? 'checked' : ''}>
           <label class="todo-text" contenteditable="true">${this.todos[i].description}</label>
         </div>
-        <button class="remove-button"><span class="iconify delete" data-icon="fa-solid:trash-alt"></span></span></button>
+        <button class="remove-button"><span class="iconify delete" data-icon="fa-solid:trash-alt"></span></button>
       `;
       todoList.appendChild(content);
     }

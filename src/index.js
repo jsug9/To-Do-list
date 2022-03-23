@@ -41,15 +41,15 @@ if (storageAvailable('localStorage')) {
     const removeButtons = document.querySelectorAll('.remove-button');
     removeButtons[i].addEventListener('click', () => {
       todos.delete(i);
+      console.log(todos.todos)
     });
   }
 
   for (let i = 0; i < todos.todos.length; i += 1) {
     const checkboxes = document.querySelectorAll('.checkbox');
     checkboxes[i].addEventListener('change', (e) => {
-      e.target.checked ? todos.complete(i) : todos.notComplete(i);
+      e.target.checked ? todos.complete(i, true) : todos.complete(i, false);
       todos.save();
-      console.log(todos.todos);
     });
   }
 
@@ -60,12 +60,9 @@ if (storageAvailable('localStorage')) {
         event.preventDefault();
       }
     });
-    todoTexts[i].addEventListener("keyup", function(event) {
-      if (event.keyCode === 13) {
-        todos.edit(i, todoTexts[i].innerHTML);
-        todos.save();
-        console.log(todos.todos);
-      }
+    todoTexts[i].addEventListener("input", () => {
+      todos.edit(i, todoTexts[i].innerHTML);
+      todos.save();
     });
   }
 
@@ -77,7 +74,6 @@ if (storageAvailable('localStorage')) {
         index: todos.todos.length,
       });
       todos.save();
-      console.log(todos.todos);
       todoInput.value = '';
       window.location.reload();
     }
