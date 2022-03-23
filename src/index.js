@@ -12,7 +12,6 @@ if (storageAvailable('localStorage')) {
     const removeButtons = document.querySelectorAll('.remove-button');
     removeButtons[i].addEventListener('click', () => {
       todos.delete(i);
-      console.log(todos.todos)
     });
   }
 
@@ -52,7 +51,6 @@ if (storageAvailable('localStorage')) {
         todos.save();
         todoInput.value = '';
         window.location.reload();
-        console.log(todos.todos)
       }
     }
   });
