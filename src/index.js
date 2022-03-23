@@ -2,7 +2,17 @@ import './style.css';
 import todos from './modules/todos.js';
 import todoList from './modules/htmlElements.js';
 
-todos.forEach((todo) => {
+const sortedTodos = todos.sort(function(a, b) {
+  if ( a.index < b.index ){
+    return -1;
+  }
+  if ( a.index > b.index ){
+    return 1;
+  }
+  return 0;
+});
+
+sortedTodos.forEach((todo) => {
   const content = document.createElement('li');
   content.setAttribute('class', 'todo');
   content.innerHTML = `

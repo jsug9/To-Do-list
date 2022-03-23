@@ -2,12 +2,12 @@ const todos = [
   {
     description: 'Take a bath',
     isComplete: false,
-    index: 0,
+    index: 1,
   },
   {
     description: 'Brush my teeth',
     isComplete: true,
-    index: 1,
+    index: 0,
   },
   {
     description: 'Finish the assignment',
