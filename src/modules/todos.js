@@ -1,7 +1,7 @@
-const newTodos = [];
+import { todoList } from './htmlElements.js';
 
-const todoList = document.getElementById('todo-list');
-export default class Todos {
+const newTodos = [];
+class Todos {
   constructor() {
     this.todos = [];
   }
@@ -19,8 +19,8 @@ export default class Todos {
 
   delete = (index) => {
     this.todos.splice(index, 1);
-    for (var i = 0; i < this.todos.length; i++) {
-      this.todos[i].index = i
+    for (let i = 0; i < this.todos.length; i += 1) {
+      this.todos[i].index = i;
     }
     this.save();
     window.location.reload();
@@ -59,3 +59,7 @@ export default class Todos {
     }
   }
 }
+
+const todos = new Todos();
+
+export default todos;
