@@ -20,7 +20,7 @@ class Todos {
   delete = (index) => {
     this.todos.splice(index, 1);
     for (let i = 0; i < this.todos.length; i += 1) {
-      this.todos[i].index = i;
+      this.todos[i].index = i + 1;
     }
     this.save();
     window.location.reload();

@@ -4,22 +4,6 @@ import storageAvailable from './modules/storageAvailable.js';
 import { todoInput } from './modules/htmlElements.js';
 
 if (storageAvailable('localStorage')) {
-  todos.add({
-    description: 'Take a bath',
-    isComplete: false,
-    index: 0,
-  });
-  todos.add({
-    description: 'Brush my teeth',
-    isComplete: true,
-    index: 1,
-  });
-  todos.add({
-    description: 'Finish the assignment',
-    isComplete: false,
-    index: 2,
-  });
-
   todos.checkStorage();
 
   todos.showTodos();
@@ -28,6 +12,7 @@ if (storageAvailable('localStorage')) {
     const removeButtons = document.querySelectorAll('.remove-button');
     removeButtons[i].addEventListener('click', () => {
       todos.delete(i);
+      console.log(todos.todos)
     });
   }
 
@@ -62,11 +47,12 @@ if (storageAvailable('localStorage')) {
         todos.add({
           description: todoInput.value,
           isComplete: false,
-          index: todos.todos.length,
+          index: todos.todos.length + 1,
         });
         todos.save();
         todoInput.value = '';
         window.location.reload();
+        console.log(todos.todos)
       }
     }
   });
