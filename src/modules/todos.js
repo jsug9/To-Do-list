@@ -58,7 +58,7 @@ class Todos {
       content.innerHTML = `
         <div class="todo-left">
           <input type="checkbox" class="checkbox" ${this.todos[i].isComplete ? 'checked' : ''}>
-          <label class="todo-text" contenteditable="true">${this.todos[i].description}</label>
+          <label class="todo-text" contenteditable="true" ${this.todos[i].isComplete ? 'style="text-decoration: line-through;"' : ''}>${this.todos[i].description}</label>
         </div>
         <button class="remove-button"><span class="iconify delete" data-icon="fa-solid:trash-alt"></span></button>
       `;
