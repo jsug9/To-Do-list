@@ -13,8 +13,19 @@ class Todos {
     }
   }
 
+  checkStorage = () => {
+    if (window.localStorage.getItem('todos') !== null) {
+      const array = JSON.parse(window.localStorage.getItem('todos'));
+      for (let i = 0; i < array.length; i += 1) {
+        newTodos[i] = JSON.parse(window.localStorage.getItem(i.toString()));
+      }
+      this.todos = newTodos;
+    }
+  }
+
   add = (todo) => {
     this.todos.push(todo);
+    this.save();
   }
 
   delete = (index) => {
@@ -28,10 +39,12 @@ class Todos {
 
   complete = (index, completed) => {
     this.todos[index].isComplete = completed;
+    this.save();
   }
 
   edit = (index, description) => {
     this.todos[index].description = description;
+    this.save();
   }
 
   clearCompleted = () => {
@@ -39,16 +52,7 @@ class Todos {
     for (let i = 0; i < this.todos.length; i += 1) {
       this.todos[i].index = i + 1;
     }
-  }
-
-  checkStorage = () => {
-    if (window.localStorage.getItem('todos') !== null) {
-      const array = JSON.parse(window.localStorage.getItem('todos'));
-      for (let i = 0; i < array.length; i += 1) {
-        newTodos[i] = JSON.parse(window.localStorage.getItem(i.toString()));
-      }
-      this.todos = newTodos;
-    }
+    this.save();
   }
 
   showTodos = () => {

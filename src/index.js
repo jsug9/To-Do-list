@@ -30,7 +30,6 @@ if (storageAvailable('localStorage')) {
     });
     todoTexts[i].addEventListener('input', () => {
       todos.edit(i, todoTexts[i].innerHTML);
-      todos.save();
     });
   }
 
@@ -43,7 +42,6 @@ if (storageAvailable('localStorage')) {
           isComplete: false,
           index: todos.todos.length + 1,
         });
-        todos.save();
         todoInput.value = '';
         window.location.reload();
       }
@@ -53,7 +51,6 @@ if (storageAvailable('localStorage')) {
   // Clean completed To-Dos
   clearBtn.addEventListener('click', () => {
     todos.clearCompleted();
-    todos.save();
     window.location.reload();
   });
 }

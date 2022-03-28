@@ -10,8 +10,6 @@ const completeToDo = (todos) => {
         todos.complete(i, false);
         todoTexts[i].style = 'text-decoration: none';
       }
-      todos.save();
-      
     });
   }
 };

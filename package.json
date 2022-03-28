@@ -8,7 +8,8 @@
     "watch": "webpack --watch",
     "build": "webpack",
     "start": "webpack serve --open",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "linters": "./linters.sh"
   },
   "repository": {
     "type": "git",
