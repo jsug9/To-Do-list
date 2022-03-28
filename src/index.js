@@ -27,7 +27,7 @@ if (storageAvailable('localStorage')) {
       if (event.keyCode === 13) {
         event.preventDefault();
       }
-    });gi
+    });
     todoTexts[i].addEventListener('input', () => {
       todos.edit(i, todoTexts[i].innerHTML);
     });
