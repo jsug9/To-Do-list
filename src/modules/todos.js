@@ -26,6 +26,7 @@ class Todos {
   add = (todo) => {
     this.todos.push(todo);
     this.save();
+    window.location.reload();
   }
 
   delete = (index) => {
@@ -53,6 +54,7 @@ class Todos {
       this.todos[i].index = i + 1;
     }
     this.save();
+    window.location.reload();
   }
 
   showTodos = () => {

@@ -27,7 +27,7 @@ if (storageAvailable('localStorage')) {
       if (event.keyCode === 13) {
         event.preventDefault();
       }
-    });
+    });gi
     todoTexts[i].addEventListener('input', () => {
       todos.edit(i, todoTexts[i].innerHTML);
     });
@@ -43,7 +43,6 @@ if (storageAvailable('localStorage')) {
           index: todos.todos.length + 1,
         });
         todoInput.value = '';
-        window.location.reload();
       }
     }
   });
@@ -51,6 +50,5 @@ if (storageAvailable('localStorage')) {
   // Clean completed To-Dos
   clearBtn.addEventListener('click', () => {
     todos.clearCompleted();
-    window.location.reload();
   });
 }

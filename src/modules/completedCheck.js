@@ -3,13 +3,8 @@ const completeToDo = (todos) => {
     const checkboxes = document.querySelectorAll('.checkbox');
     const todoTexts = document.querySelectorAll('.todo-text');
     checkboxes[i].addEventListener('change', (e) => {
-      if (e.target.checked) {
-        todos.complete(i, true);
-        todoTexts[i].style = 'text-decoration: line-through';
-      } else {
-        todos.complete(i, false);
-        todoTexts[i].style = 'text-decoration: none';
-      }
+      todos.complete(i, e.target.checked);
+      todoTexts[i].style = e.target.checked ? 'text-decoration: line-through' : 'text-decoration: none';
     });
   }
 };
