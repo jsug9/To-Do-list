@@ -41,7 +41,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- 
+👤 **Dangelo Arrivillaga**
+
+- GitHub: [@Dangelo-JAN](https://github.com/Dangelo-JAN)
 
 ## 📝 License
 
