@@ -2,3 +2,4 @@
 node_modules/
 echo .DS_Store
 Linters-info.md
+coverage
