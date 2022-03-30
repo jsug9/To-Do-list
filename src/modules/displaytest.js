@@ -17,7 +17,7 @@ const todoList = document.getElementById('todo-list');
 const displayTodos = () => {
   while (todoList.firstChild) {
     todoList.removeChild(todoList.firstChild);
-  };
+  }
 
   for (let i = 0; i < todosTest.todos.length; i += 1) {
     const content = document.createElement('li');
@@ -31,6 +31,6 @@ const displayTodos = () => {
     `;
     todoList.appendChild(content);
   }
-}
+};
 
-export { displayTodos };
+export default displayTodos;

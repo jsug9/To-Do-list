@@ -1,15 +1,15 @@
 import { todosTest } from './todos.js';
-import * as Display from './displaytest.js';
+import displayTodos from './displaytest.js';
 
 delete window.location;
-window.location = { reload: jest.fn() }
+window.location = { reload: jest.fn() };
 
 todosTest.checkStorage();
 
 describe('Test add To-Do', () => {
   test('Test localStorage', () => {
     todosTest.add({
-      description: "Test 1",
+      description: 'Test 1',
       isComplete: false,
       index: 1,
     });
@@ -24,12 +24,12 @@ describe('Test add To-Do', () => {
 
   test('Test item display', () => {
     todosTest.add({
-      description: "Test 2",
+      description: 'Test 2',
       isComplete: false,
       index: 1,
     });
 
-    Display.displayTodos()
+    displayTodos();
 
     const todoLi = document.querySelectorAll('.todo');
 
@@ -44,7 +44,7 @@ describe('Test remove To-Do', () => {
   });
 
   test('Test item display', () => {
-    Display.displayTodos();
+    displayTodos();
 
     const todoLi = document.querySelectorAll('.todo');
 

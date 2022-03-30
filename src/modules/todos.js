@@ -76,4 +76,4 @@ class Todos {
 const todos = new Todos();
 const todosTest = new Todos();
 
-export { todosTest, todos }
+export { todosTest, todos };
