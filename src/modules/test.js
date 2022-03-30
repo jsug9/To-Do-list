@@ -1,37 +1,10 @@
 import { todosTest } from './todos.js';
+import * as Display from './displaytest.js';
 
 delete window.location;
 window.location = { reload: jest.fn() }
 
-document.body.innerHTML = `
-  <main>
-    <header>
-      <h1>Today's To Do</h1>
-      <button type="button" class="refresh-icon-button"><span class="iconify" data-icon="fa:refresh"></span></button>
-    </header>
-    <input type="text" name="todo-input" id="todo-input" class="todo-input" placeholder="Add to your list...">
-    <ul class="todo-list" id="todo-list"></ul>
-    <button type="button" class="clear-btn" id="clear-btn">Clear all completed</button>
-  </main>
-`;
-
-const todoList = document.getElementById('todo-list');
 todosTest.checkStorage();
-
-const displayTodos = () => {
-  for (let i = 0; i < todosTest.todos.length; i += 1) {
-    const content = document.createElement('li');
-    content.setAttribute('class', 'todo');
-    content.innerHTML = `
-      <div class="todo-left">
-        <input type="checkbox" class="checkbox" ${todosTest.todos[i].isComplete ? 'checked' : ''}>
-        <label class="todo-text" contenteditable="true" ${todosTest.todos[i].isComplete ? 'style="text-decoration: line-through;"' : ''}>${todosTest.todos[i].description}</label>
-      </div>
-      <button class="remove-button"><span class="iconify delete" data-icon="fa-solid:trash-alt"></span></button>
-    `;
-    todoList.appendChild(content);
-  }
-}
 
 describe('Test add To-Do', () => {
   test('Test localStorage', () => {
@@ -51,12 +24,12 @@ describe('Test add To-Do', () => {
 
   test('Test item display', () => {
     todosTest.add({
-      description: "Test 1",
+      description: "Test 2",
       isComplete: false,
       index: 1,
     });
 
-    displayTodos()
+    Display.displayTodos()
 
     const todoLi = document.querySelectorAll('.todo');
 
@@ -71,14 +44,10 @@ describe('Test remove To-Do', () => {
   });
 
   test('Test item display', () => {
-    todosTest.add({
-      description: "Test 1",
-      isComplete: false,
-      index: 1,
-    });
+    Display.displayTodos();
 
     const todoLi = document.querySelectorAll('.todo');
 
-    expect(todoLi).toHaveLength(2);
+    expect(todoLi).toHaveLength(1);
   });
 });
