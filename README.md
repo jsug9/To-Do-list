@@ -23,6 +23,14 @@ To get a local copy of the project, follow these steps:
  - cd To-Do-list
  - open index.html
 
+## Run Tests
+
+To run tests follow the following steps:
+1. Open your terminal and navigate to the todo directory.
+2. Install jest typing into your terminal: npm install --save-dev jest
+3. Run the test typing into your terminal: npm run test
+4. If you want to check the coverage type into your terminal: npm run coverage
+
 ## Author
 
 👤 **Augusto Galindo**
