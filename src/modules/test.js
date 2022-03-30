@@ -1,30 +1,74 @@
-import { addTodo, removeTodos } from './add.js';
+import { todosTest } from './todos.js';
 
-describe('A test to add items to To-Do-List', () => {
-  test('Test addToDo function', () => {
-    // Arrange
-    const givenArr = [1];
+delete window.location;
+window.location = { reload: jest.fn() }
 
-    // Act
-    addTodo(givenArr, 'Added to the listli');
+document.body.innerHTML = `
+  <main>
+    <header>
+      <h1>Today's To Do</h1>
+      <button type="button" class="refresh-icon-button"><span class="iconify" data-icon="fa:refresh"></span></button>
+    </header>
+    <input type="text" name="todo-input" id="todo-input" class="todo-input" placeholder="Add to your list...">
+    <ul class="todo-list" id="todo-list"></ul>
+    <button type="button" class="clear-btn" id="clear-btn">Clear all completed</button>
+  </main>
+`;
 
-    // Assert
-    const firstElement = givenArr[1];
-    expect(givenArr).toHaveLength(2);
-    expect(firstElement.completed).toBe(false);
-    expect(firstElement.description).toBe('Added to the listli');
-    expect(firstElement.index).toBe(2);
+const todoList = document.getElementById('todo-list');
+todosTest.checkStorage();
+
+const displayTodos = () => {
+  for (let i = 0; i < todosTest.todos.length; i += 1) {
+    const content = document.createElement('li');
+    content.setAttribute('class', 'todo');
+    content.innerHTML = `
+      <div class="todo-left">
+        <input type="checkbox" class="checkbox" ${todosTest.todos[i].isComplete ? 'checked' : ''}>
+        <label class="todo-text" contenteditable="true" ${todosTest.todos[i].isComplete ? 'style="text-decoration: line-through;"' : ''}>${todosTest.todos[i].description}</label>
+      </div>
+      <button class="remove-button"><span class="iconify delete" data-icon="fa-solid:trash-alt"></span></button>
+    `;
+    todoList.appendChild(content);
+  }
+}
+
+describe('Test add To-Do', () => {
+  test('Test localStorage', () => {
+    todosTest.add({
+      description: "Test 1",
+      isComplete: false,
+      index: 1,
+    })
+    expect(todosTest.todos).toEqual([
+      {
+        description: 'Test 1',
+        isComplete: false,
+        index: 1,
+      },
+    ]);
+  });
+
+  test('Test item display', () => {
+    todosTest.add({
+      description: "Test 1",
+      isComplete: false,
+      index: 1,
+    })
+
+    displayTodos()
+
+    const todoLi = document.querySelectorAll('.todo');
+
+    expect(todoLi).toHaveLength(2);
   });
 });
 
-describe('A test to remove items from the To-Do-List', () => {
-  test('Test removeTodos function', () => {
-    // Arrange
-    const tolu = { index: 3 };
-    const id = '3';
-    // Act
-    const result = removeTodos(tolu, id);
-    // Assert
-    expect(result).toBe(false);
+describe('Test remove To-Do', () => {
+  test('Test remove in localStorage', () => {
+    todosTest.delete(0);
+    expect(todosTest.todos).toHaveLength(1);
   });
+
+  
 });
