@@ -39,7 +39,7 @@ describe('Test add To-Do', () => {
       description: "Test 1",
       isComplete: false,
       index: 1,
-    })
+    });
     expect(todosTest.todos).toEqual([
       {
         description: 'Test 1',
@@ -54,7 +54,7 @@ describe('Test add To-Do', () => {
       description: "Test 1",
       isComplete: false,
       index: 1,
-    })
+    });
 
     displayTodos()
 
@@ -70,5 +70,15 @@ describe('Test remove To-Do', () => {
     expect(todosTest.todos).toHaveLength(1);
   });
 
-  
+  test('Test item display', () => {
+    todosTest.add({
+      description: "Test 1",
+      isComplete: false,
+      index: 1,
+    });
+
+    const todoLi = document.querySelectorAll('.todo');
+
+    expect(todoLi).toHaveLength(2);
+  });
 });
