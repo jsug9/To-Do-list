@@ -22,7 +22,7 @@ describe('Test add To-Do', () => {
     ]);
   });
 
-  test('Test item display', () => {
+  test('Test item is displayed when added', () => {
     todosTest.add({
       description: 'Test 2',
       isComplete: false,
@@ -43,11 +43,12 @@ describe('Test remove To-Do', () => {
     expect(todosTest.todos).toHaveLength(1);
   });
 
-  test('Test item display', () => {
+  test('Test item is removed visually', () => {
+    todosTest.delete(0);
     displayTodos();
 
     const todoLi = document.querySelectorAll('.todo');
 
-    expect(todoLi).toHaveLength(1);
+    expect(todoLi).toHaveLength(0);
   });
 });
