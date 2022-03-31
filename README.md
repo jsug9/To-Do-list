@@ -33,7 +33,7 @@ npm install --save-dev jest
 ```
 3. Run the test typing into your terminal:
 ```
- npm run test
+npm run test
 ```
 4. If you want to check the coverage, type into your terminal:
 ```
