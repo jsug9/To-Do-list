@@ -1,10 +1,13 @@
 import { todosTest } from './todos.js';
 import displayTodos from './displaytest.js';
+import { todoList, todoInput, clearBtn } from './htmlElements.js';
 
 delete window.location;
 window.location = { reload: jest.fn() };
 
 todosTest.checkStorage();
+
+const classCheckbox = document.getElementsByClassName('checkbox');
 
 describe('Test add To-Do', () => {
   test('Test localStorage', () => {
@@ -86,11 +89,13 @@ describe('Test Edit To-Do', () => {
 
 describe('Test Mark To-Do as completed', () => {
   test('Test mark to-do completed in localStorage', () => {
-    
+    todosTest.complete(0, true);
+    expect(todosTest.todos[0].isComplete).toBe(true);
   });
 
   test('Test item is marked as completed visually', () => {
-    
+    displayTodos();
+    expect(classCheckbox[0].checked).toBe(true);
   });
 });
 
