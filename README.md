@@ -19,18 +19,32 @@ For a live demo of the Portfolio [click here](https://jsug9.github.io/To-Do-list
 To get a local copy of the project, follow these steps: 
 1. Open the terminal and navigate to the folder where you would like to put these files.
 2. Type the following commands into the terminal: 
- - git clone https://github.com/jsug9/To-Do-list
- - cd To-Do-list
- - open index.html
+ ```
+ git clone https://github.com/jsug9/To-Do-list
+ ```
+ ```
+ cd To-Do-list
+ ```
+ ```
+ open index.html
+ ```
 
 ## Run Tests
 
 To run tests follow the following steps:
 1. Open your terminal and navigate to the todo directory.
-2. Install jest typing into your terminal: npm install --save-dev jest
-3. Run the test typing into your terminal: npm run test
-4. If you want to check the coverage type into your terminal: npm run coverage
-
+2. Install jest typing into your terminal: 
+```
+npm install --save-dev jest
+```
+3. Run the test typing into your terminal:
+```
+npm run test
+```
+4. If you want to check the coverage, type into your terminal:
+```
+npm run coverage
+```
 ## Author
 
 👤 **Augusto Galindo**
@@ -48,6 +62,8 @@ Feel free to check the [issues page](https://github.com/jsug9/To-Do-list/issues)
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
+
+Thanks to my coding partner who helped me a lot and taught me new tricks.
 
 👤 **Dangelo Arrivillaga**
 
