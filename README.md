@@ -63,6 +63,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
+Thanks to my coding partner who helped me a lot and taught me new tricks.
+
 👤 **Dangelo Arrivillaga**
 
 - GitHub: [@Dangelo-JAN](https://github.com/Dangelo-JAN)
