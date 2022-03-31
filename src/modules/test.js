@@ -104,10 +104,13 @@ describe('Test Mark To-Do as completed', () => {
 
 describe('Test Clear completed To-Dos', () => {
   test('Test completed to-dos removed in localStorage', () => {
-    
+    todosTest.clearCompleted();
+    expect(todosTest.todos).toHaveLength(3);
   });
 
   test('Test completed to-dos removed visually', () => {
-    
+    displayTodos();
+    const todoLi = document.querySelectorAll('.todo');
+    expect(todoLi).toHaveLength(3);
   });
 });
