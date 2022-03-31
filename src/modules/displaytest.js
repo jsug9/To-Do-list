@@ -13,7 +13,6 @@ document.body.innerHTML = `
 `;
 
 const todoList = document.getElementById('todo-list');
-const clearBtn = document.getElementById('clear-btn');
 
 const displayTodos = () => {
   while (todoList.firstChild) {

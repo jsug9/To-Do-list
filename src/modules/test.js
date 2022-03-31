@@ -1,6 +1,5 @@
 import { todosTest } from './todos.js';
 import displayTodos from './displaytest.js';
-import { todoList, todoInput, clearBtn } from './htmlElements.js';
 
 delete window.location;
 window.location = { reload: jest.fn() };
