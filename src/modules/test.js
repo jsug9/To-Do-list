@@ -20,27 +20,48 @@ describe('Test add To-Do', () => {
         index: 1,
       },
     ]);
+    todosTest.add({
+      description: 'Test 2',
+      isComplete: false,
+      index: 2,
+    });
+    todosTest.add({
+      description: 'Test 3',
+      isComplete: false,
+      index: 3,
+    });
+    todosTest.add({
+      description: 'Test 4',
+      isComplete: false,
+      index: 4,
+    });
+    todosTest.add({
+      description: 'Test 5',
+      isComplete: false,
+      index: 5,
+    });
+    expect(todosTest.todos).toHaveLength(5);
   });
 
   test('Test item is displayed when added', () => {
     todosTest.add({
-      description: 'Test 2',
+      description: 'Test 6',
       isComplete: false,
-      index: 1,
+      index: 6,
     });
 
     displayTodos();
 
     const todoLi = document.querySelectorAll('.todo');
 
-    expect(todoLi).toHaveLength(2);
+    expect(todoLi).toHaveLength(6);
   });
 });
 
 describe('Test remove To-Do', () => {
   test('Test remove in localStorage', () => {
     todosTest.delete(0);
-    expect(todosTest.todos).toHaveLength(1);
+    expect(todosTest.todos).toHaveLength(5);
   });
 
   test('Test item is removed visually', () => {
@@ -49,6 +70,36 @@ describe('Test remove To-Do', () => {
 
     const todoLi = document.querySelectorAll('.todo');
 
-    expect(todoLi).toHaveLength(0);
+    expect(todoLi).toHaveLength(4);
+  });
+});
+
+describe('Test Edit To-Do', () => {
+  test('Test edit in localStorage', () => {
+    
+  });
+
+  test('Test item is edited visually', () => {
+    
+  });
+});
+
+describe('Test Mark To-Do as completed', () => {
+  test('Test mark to-do completed in localStorage', () => {
+    
+  });
+
+  test('Test item is marked as completed visually', () => {
+    
+  });
+});
+
+describe('Test Clear completed To-Dos', () => {
+  test('Test completed to-dos removed in localStorage', () => {
+    
+  });
+
+  test('Test completed to-dos removed visually', () => {
+    
   });
 });
