@@ -79,11 +79,14 @@ describe('Test remove To-Do', () => {
 
 describe('Test Edit To-Do', () => {
   test('Test edit in localStorage', () => {
-    
+    todosTest.edit(0, 'test edited');
+    expect(todosTest.todos[0].description).toBe('test edited');
   });
 
   test('Test item is edited visually', () => {
-    
+    displayTodos();
+    const classLabel = document.querySelectorAll('.todo-text');
+    expect(classLabel[0].innerHTML).toBe('test edited');
   });
 });
 
